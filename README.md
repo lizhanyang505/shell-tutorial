@@ -138,6 +138,7 @@ echo 这里的 # 会被注释
 echo ${PATH#*:}       # 前面的#是参数代换，不是注释.
 echo $(( 2#101011 ))  # 基本转换，不是注释.
 ```
+```
 一、if的基本语法:
 if [ command ];then
    符合该条件执行的语句
@@ -169,7 +170,7 @@ fi
 [ FILE1 -nt FILE2 ] 如果 FILE1 has been changed more recently than FILE2, or 如果 FILE1 exists and FILE2 does not则为真。
 [ FILE1 -ot FILE2 ] 如果 FILE1 比 FILE2 要老, 或者 FILE2 存在且 FILE1 不存在则为真。
 [ FILE1 -ef FILE2 ] 如果 FILE1 和 FILE2 指向相同的设备和节点号则为真。
-
+```
 
 
 分号`;`命令分割符，分割符允许在同一行里有两个或更多的命令。执行[demo2](./example/demo2)，会将 demo2 拷贝输出 demo2.bak 。
@@ -190,14 +191,14 @@ fi; echo "File test complete."
 双分号`;;`，case语句分支的结束符。[demo3](./example/demo3)
 
 ```shell
-read Keypress
-case "$Keypress" in
-  [[:lower:]]   ) echo "Lowercase letter";;
-  [[:upper:]]   ) echo "Uppercase letter";;
-  [0-9]         ) echo "Digit";;
-  *             ) echo "Punctuation, whitespace, or other";;
-esac      #  允许字符串的范围出现在[]中,
-          #+ 或者POSIX风格的[[中.
+read keypress
+case "$keypress" in
+lower) echo "Lowercase letter";;
+upper) echo "Uppercase letter";;
+[0-9]) echo "Digit";;
+*    ) echo "Punctuation, whitestpace, or other";;
+esac #允许字符串的范围出现在[]中
+     #+ 或者POSI风格的[[中.
 exit 0
 ```
 
